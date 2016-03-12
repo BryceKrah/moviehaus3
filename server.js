@@ -9,6 +9,9 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.port || 3000;
 
+const theaterRoutes = require( path.join(__dirname, '/routes/theaterRoutes'));
+const movieRoutes = require( path.join(__dirname, '/routes/movies'))
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.set('view engine', 'ejs');
@@ -23,6 +26,10 @@ app.get('/', (req,res) => {
     res.render('pages/index');
 
 });
+
+app.use('/theaters', theaterRoutes);
+app.use('/theaters/:theaterID/movies', movieRoutes);
+
 
 // turn me on!
 app.listen(port, () => {
