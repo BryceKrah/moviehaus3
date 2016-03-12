@@ -1,1 +1,1 @@
-console.error("SyntaxError: /Users/eminekoc/dev/moviehaus3/moviehaus3/public/js/script.js: Unexpected token (44:65) while parsing file: /Users/eminekoc/dev/moviehaus3/moviehaus3/public/js/script.js");
+console.error("SyntaxError: /Users/Cthulu/dev/projects/moviehaus3/moviehaus3/public/js/script.js: Unexpected token (44:65) while parsing file: /Users/Cthulu/dev/projects/moviehaus3/moviehaus3/public/js/script.js");

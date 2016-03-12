@@ -1,4 +1,4 @@
-/*global require process*/
+ /*global require process*/
 require('dotenv').config();
 'use strict';
 const express = require('express');
