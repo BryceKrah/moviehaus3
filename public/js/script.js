@@ -43,20 +43,17 @@ const App = React.createClass( {
     return (
       <div {/* App div inside container div, kind of redundant */} >
         //the closing make more sense to the linter once we assign each component to a prop, but the linter can't read this well as is
-        <AllTheatersDisplay
+        <AllTheatersView
           {/* various props */}
 
-          <OneTheaterDisplay
+          <OneTheaterView
             {/* props, including one to indicate which theater this is*/}
-            <MovieList
-              {/* props */}
-              <OneMovieDisplay
+            <OneMovieView
                 {/* props, including one to indicate which movie this is. title? playing times?*/}
-                /> {/* OneMovieDisplay close */}
-              /> {/* MovieList close */}
-            /> {/* OneTheaterDisplay close */}
-          /> {/* AllTheatersDisplay close */}
-          <CurrentMovieDisplay
+              /> {/* OneMovieView close */}
+            /> {/* OneTheaterView close */}
+          /> {/* AllTheatersView close */}
+          <CurrentMovieView
             {/* various props. poster, title, year, rating, director, plot (PTYRDP) might be condensible to a single element/prop */}
             <PTYRDP
               />
