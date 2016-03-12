@@ -52,10 +52,10 @@ const App = React.createClass( {
               {/* props */}
               <OneMovieDisplay
                 {/* props, including one to indicate which movie this is. title? playing times?*/}
-                /> {/* OneMovieDisplay close */}
-              /> {/* MovieList close */}
-            /> {/* OneTheaterDisplay close */}
-          /> {/* AllTheatersDisplay close */}
+                 {/* OneMovieDisplay close */}
+                 {/* MovieList close */}
+             {/* OneTheaterDisplay close */}
+             {/* AllTheatersDisplay close */}
           <CurrentMovieDisplay
             {/* various props. poster, title, year, rating, director, plot (PTYRDP) might be condensible to a single element/prop */}
             <PTYRDP
@@ -89,4 +89,4 @@ const App = React.createClass( {
 })
 
 
-ReactDOM.render( <App />, document.querySelector('#container') );
+ReactDOM.render( <App />, document.querySelector('.container') );
