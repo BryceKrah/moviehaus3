@@ -21,5 +21,5 @@ CREATE TABLE movies (
 CREATE TABLE xref (
   movie_id INTEGER REFERENCES movies (id) ON DELETE CASCADE,
   theater_id INTEGER REFERENCES theaters (id) ON DELETE CASCADE,
-  PRIMARY KEY (movie_id, theatre_id)
+  PRIMARY KEY (movie_id, theater_id)
 );

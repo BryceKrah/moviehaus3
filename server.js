@@ -1,13 +1,27 @@
 /*global require process*/
+require('dotenv').config();
 'use strict';
 const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const request = require('request');
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');;
+//const dotenv = require('dot-env');
+var db = require('./db/pg.js');
 
 const app = express();
 const port = process.env.port || 3000;
+
+// var pgp = require('pg-promise')({
+//     // Initialization Options
+// });
+// var cn = {
+//   host: process.env.DB_HOST,
+//   port: process.env.DB_PORT,
+//   database: process.env.DB_NAME,
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PASS
+// };
 
 const theaterRoutes = require( path.join(__dirname, '/routes/theaterRoutes'));
 const movieRoutes = require( path.join(__dirname, '/routes/movies'))
