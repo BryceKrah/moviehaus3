@@ -2,7 +2,7 @@
 const express = require('express');
 const theaters = express.Router();
 const bodyParser = require('body-parser');
-const db = require('./../db/pg');
+const db = require('../db/pg');
 
 theaters.route('/:theaterID')
   .get( (req,res)=>{
