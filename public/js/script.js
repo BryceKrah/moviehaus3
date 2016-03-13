@@ -13,7 +13,7 @@ const Footer = require('./footer.js');
 
 //components
 const MovieView = require('./movieView.js');
-const MyButton = require('./placeholderButton.js');
+// const MyButton = require('./placeholderButton.js');
 
 //end of components
 
@@ -22,7 +22,8 @@ const App = React.createClass( {
     return (
       {
         movieSearch : {},
-        searching: false
+        searching: false,
+        allmovies: {}
       }
     )
   },
@@ -31,26 +32,17 @@ const App = React.createClass( {
     $.get('/theaters/1/movies')
     .done( (data) => {
       console.log(data)
-      //this will likely need to be re-written
+      //this gets everything from the database
       data.forEach( (el) => {
-        this.state.movieSearch[el.KEY_ID] = el;
+        var movie_id = el.id;
+        this.state.allmovies[movie_id] = el;
       })
-      // console.log(Object.keys.this.state.testObj);
-      this.setState( {movieSearch : this.state.movieSearch})
-    })
-  },
-  // componentDidMount : function () {
-  //   //get data from DB on render
-  //   $.get('/ROUTEgoesHERE')
-  //     .done( (data) => {
-  //       //this will likely need to be re-written
-  //       data.forEach( (el) => {
-  //         this.state.testObj[el.KEY_ID] = el;
-  //       })
-  //       // console.log(Object.keys.this.state.testObj);
-  //       this.setState( {testObj : this.state.testObj})
-  //     })
-  // },
+        // this line changes/refreshes the state of all movies.
+        this.setState( {allmovies : this.state.allmovies})
+      })
+    },
+
+
   addTheater : function (newTheater) {
     //i'm not entirely confident in this bit of code.
     var passTheater = this.state.testObj;
@@ -101,11 +93,14 @@ const App = React.createClass( {
       console.log(data)
     })
   },
+  renderMovies:function(key){
+  return (
+    <AllMovies key = {key} index = {key}   details={this.state.allmovies[key] } />
 
-
+  )},
   render : function () {
+    console.log('this is comming from render function', this.props.details )
     //set any vars/operations we may need for render
-
     let searchResultView =  <div>
         <SearchOMDB searchMovie={this.searchForMovie} />
         <SearchResult movieSearch={this.state.movieSearch} cancelSearch={this.cancelSearch} addMovie={this.addMovie}/>
@@ -117,29 +112,15 @@ const App = React.createClass( {
 
       <div>
       <Nav />
-      <AllMovies />
+
       {this.state.searching ? searchResultView : homeView}
+
+      {Object.keys(this.state.allmovies).map( this.renderMovies)}
+
       <Footer />
 
 
-        <MovieView
-          poster='posterhtml'
-          plot='plot summary'
-          button1= {
-            <MyButton
-              name = "edit"
-              inputType = "button"
-              buttonLabel = "Edit Movie"
-              />
-          }
-          button2 = {
-            <MyButton
-              name = "delete"
-              inputType = "button"
-              buttonLabel = "Delete Movie"
-              />
-          }
-        />
+
       </div>
     )
   }

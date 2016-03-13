@@ -12,3 +12,10 @@ image {
   height: 300px;
   width: 280px;
 }
+
+
+movies {
+  position:relative;
+  display:block;
+  width:200px;
+}
