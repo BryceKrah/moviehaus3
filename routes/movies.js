@@ -21,7 +21,7 @@ movies.route('/')
     res.json(res.rows)
   })
   .post( db.addMovie, (req,res)=>{
-    res.send("add a movie to a specific theater")
+    res.json("successfuly added to db")
   })
 
 

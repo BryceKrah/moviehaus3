@@ -3,20 +3,27 @@ const React = require('react');
 
 const AllMovies = React.createClass( {
 
+  componentDidMount : function () {
+    //get data from DB on render
+    $.get('/theaters/1/movies')
+    .done( (data) => {
+      console.log(data)
+      //this will likely need to be re-written
+      let allMovies = {};
+      data.forEach( (el) => {
+        var movie_id = el.id;
+        allMovies[movie_id] = el;
+      })
+      console.log('this is the result came from allMovies', allMovies , allMovies[8])    })
+  },
     render: function() {
     return (
       <div className="row">
           <section className="col s12">
             {/*to do unfinished tasks*/}
-            <p>test</p>
-            <section id="todo-display" className="col s12">
             <div className="carousel carousel-slider">
-              <a className="carousel-item" href="#one!"><img src={'http://lorempixel.com/800/400/food/1'}/>sss</a>
-              <a className="carousel-item" href="#two!"><img src={'http://lorempixel.com/800/400/food/2'}/>sss</a>
-              <a className="carousel-item" href="#three!"><img src={'http://lorempixel.com/800/400/food/3'}/>ddd</a>
-              <a className="carousel-item" href="#four!"><img src={'http://lorempixel.com/800/400/food/4'}/>fff</a>
+              <a className="carousel-item" href="#one!"> {this.allMovies} </a>
             </div>
-            </section>
           </section>
       </div>
 

@@ -9,8 +9,7 @@ const Nav = React.createClass( {
       <div id = "nav">
       <nav className="light-blue lighten-1" role="navigation">
         <div className="nav-wrapper container">
-          <a id="logo-container" href="#" className="brand-logo"></a>
-          <p>MovieHouse3</p>
+          <a id="logo-container" href="#" className="brand-logo"><h5>Theatre #1</h5></a>
         </div>
       </nav>
       </div>

@@ -42,8 +42,11 @@ function showOneMovie(req,res,next){
 }
 
 function addMovie(req,res,next){
-  db.one("insert into movies (title, year, rating, director, actors, plot, poster) values($1,$2,$3,$4,$5,$6,$7)", [ req.body.tile, req.body.year, req.body.rating, req.body.director, req.body.actors, req.body.plot, req.body.poster])
+  console.log(req.body.Title)
+
+  db.one("insert into movies (title, year, rating, director, actors, plot, poster) values($1,$2,$3,$4,$5,$6,$7)", [ req.body.Title, req.body.Year, req.body.Rating, req.body.Director, req.body.Actors, req.body.Plot, req.body.Poster])
   .then(function(data) {
+    console.log(req.body.Title)
     res.rows= data;
     console.log('this is the single movie from pg.js', data)
     next();
