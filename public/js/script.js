@@ -9,6 +9,13 @@ const Nav = require('./nav.js');
 const AllMovies = require('./allMovies.js');
 const Footer = require('./footer.js');
 
+// const $ = require('jquery');
+
+//components
+const MovieView = require('./movieView.js');
+const MyButton = require('./placeholderButton.js');
+
+//end of components
 
 const App = React.createClass( {
   getInitialState : function () {
@@ -57,6 +64,7 @@ const App = React.createClass( {
         addNew
       )
   },
+
   // addTheater : function (newTheater) {
   //   //i'm not entirely confident in this bit of code.
   //   var passTheater = this.state.testObj;
@@ -112,6 +120,26 @@ const App = React.createClass( {
       <AllMovies />
       {this.state.searching ? searchResultView : homeView}
       <Footer />
+
+
+        <MovieView
+          poster='posterhtml'
+          plot='plot summary'
+          button1= {
+            <MyButton
+              name = "edit"
+              inputType = "button"
+              buttonLabel = "Edit Movie"
+              />
+          }
+          button2 = {
+            <MyButton
+              name = "delete"
+              inputType = "button"
+              buttonLabel = "Delete Movie"
+              />
+          }
+        />
       </div>
     )
   }
