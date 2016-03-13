@@ -56,7 +56,7 @@ const App = React.createClass( {
             <MyButton
               name = "edit"
               inputType = "button"
-              buttonLabel = "Edit Movie"
+              buttonLabel = "Edit Movie" 
               />
           }
           button2 = {
