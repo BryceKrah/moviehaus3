@@ -1,42 +1,47 @@
 const React = require('react');
 
+
 const MovieView = React.createClass( {
 
 //need to pass button info to allow for flexibility. pass each button as subComponent1=
   render : function () {
+
+    return (
     <div>
-      placeholder spot for MovieView
+
       <ul className = "movieInfoList">
         <li>
-          this.props.poster
+          {this.props.poster}
         </li>
         <li>
-          this.props.title
+          {this.props.title}
         </li>
         <li>
-          this.props.year
+          {this.props.year}
         </li>
         <li>
-          this.props.rating
+          {this.props.rating}
         </li>
         <li>
-          this.props.director
+          {this.props.director}
         </li>
         <li>
-          this.props.actors
+          {this.props.actors}
         </li>
         <li>
-          this.props.plot
+          {this.props.plot}
         </li>
+
       </ul>
-      {/*
-      <Button {/* button props to edit/delete/add* /}/>
-      <Button {/* button props to edit/delete/add* /}/>
-      */}
+
+      {this.props.button1}
+      {this.props.button2}
+
     </div>
+  )
   }
 
 })
 
 
-module.exports = CreateFormContainer;
+module.exports = MovieView;
