@@ -1,0 +1,21 @@
+.search-results-container {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+  font-size: 25px;
+  border: 2px solid black;
+}
+
+
+image {
+  height: 300px;
+  width: 280px;
+}
+
+
+movies {
+  position:relative;
+  display:block;
+  width:200px;
+}
